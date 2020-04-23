@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
+  constructor(private route : ActivatedRoute){}
 
-  constructor() { }
-
+  idpass = '';
   ngOnInit() {
+    let id = this.route.snapshot.paramMap.get('id');
+    this.idpass = id;
   }
-
 }
